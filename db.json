@@ -1,0 +1,193 @@
+{
+  "personas": [
+    {
+      "nombre": "Juan",
+      "apellidos": "Perez",
+      "dni": "71390300",
+      "correo": "juan.perez@example.com",
+      "telefono": "987654321",
+      "direccion": "AV CENTENARIO 1211",
+      "paisId": "1",
+      "departamentoId": "1",
+      "provinciaId": "1",
+      "distritoId": "1",
+      "coordenadas": "-8.4055238,-74.6335033",
+      "id": "1"
+    },
+    {
+      "nombre": "Karla",
+      "apellidos": "Vargas Tejada",
+      "dni": "15963528",
+      "correo": "karla@gmail.com",
+      "telefono": "930152563",
+      "direccion": "av. centenario 530",
+      "paisId": "1",
+      "departamentoId": "1",
+      "provinciaId": "1",
+      "distritoId": "1",
+      "coordenadas": "-8.3944865,-74.5894852",
+      "id": "d157"
+    },
+    {
+      "nombre": "Rosa",
+      "apellidos": "Alvarado Gomez",
+      "dni": "85263574",
+      "correo": "rosaag@gmail.com",
+      "telefono": "965369586",
+      "direccion": "jR. UCAYALI 230",
+      "paisId": "1",
+      "departamentoId": "1",
+      "provinciaId": "1",
+      "distritoId": "1",
+      "coordenadas": "-8.3786496,-74.5454599",
+      "id": "e461"
+    },
+    {
+      "nombre": "Luis",
+      "apellidos": "Correo Vilchez",
+      "dni": "85369545",
+      "correo": "luis@gmail.com",
+      "telefono": "963258695",
+      "direccion": "av centenario 520",
+      "paisId": "1",
+      "departamentoId": "1",
+      "provinciaId": "1",
+      "distritoId": "1",
+      "coordenadas": "-8.3831315,-74.5428564",
+      "id": "b33e"
+    }
+  ],
+  
+  "paises": [
+    {
+      "id": "1",
+      "nombre": "Perú"
+    }
+  ],
+  "departamentos": [
+    {
+      "id": "1",
+      "nombre": "Ucayali",
+      "paisId": 1
+    },
+    {
+      "id": "2",
+      "nombre": "Lima",
+      "paisId": 1
+    },
+    {
+      "id": "3",
+      "nombre": "Cusco",
+      "paisId": 1
+    }
+  ],
+  "provincias": [
+    {
+      "id": "1",
+      "nombre": "Coronel Portillo",
+      "departamentoId": 1
+    },
+    {
+      "id": "2",
+      "nombre": "Atalaya",
+      "departamentoId": 1
+    },
+    {
+      "id": "3",
+      "nombre": "Lima",
+      "departamentoId": 2
+    },
+    {
+      "id": "4",
+      "nombre": "Huarochirí",
+      "departamentoId": 2
+    },
+    {
+      "id": "5",
+      "nombre": "Cusco",
+      "departamentoId": 3
+    },
+    {
+      "id": "6",
+      "nombre": "Urubamba",
+      "departamentoId": 3
+    }
+  ],
+  "distritos": [
+    {
+      "id": "1",
+      "nombre": "Calleria",
+      "provinciaId": 1
+    },
+    {
+      "id": "2",
+      "nombre": "Yarinacocha",
+      "provinciaId": 1
+    },
+    {
+      "id": "3",
+      "nombre": "Manantay",
+      "provinciaId": 1
+    },
+    {
+      "id": "4",
+      "nombre": "Campo Verde",
+      "provinciaId": 1
+    },
+    {
+      "id": "5",
+      "nombre": "Raymondi",
+      "provinciaId": 2
+    },
+    {
+      "id": "6",
+      "nombre": "Sepahua",
+      "provinciaId": 2
+    },
+    {
+      "id": "7",
+      "nombre": "Miraflores",
+      "provinciaId": 3
+    },
+    {
+      "id": "8",
+      "nombre": "San Isidro",
+      "provinciaId": 3
+    },
+    {
+      "id": "9",
+      "nombre": "Barranco",
+      "provinciaId": 3
+    },
+    {
+      "id": "10",
+      "nombre": "Matucana",
+      "provinciaId": 4
+    },
+    {
+      "id": "11",
+      "nombre": "San Mateo",
+      "provinciaId": 4
+    },
+    {
+      "id": "12",
+      "nombre": "Cusco",
+      "provinciaId": 5
+    },
+    {
+      "id": "13",
+      "nombre": "San Sebastián",
+      "provinciaId": 5
+    },
+    {
+      "id": "14",
+      "nombre": "Urubamba",
+      "provinciaId": 6
+    },
+    {
+      "id": "15",
+      "nombre": "Machu Picchu",
+      "provinciaId": 6
+    }
+  ]
+}
