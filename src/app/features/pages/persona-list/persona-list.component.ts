@@ -33,7 +33,6 @@ import { MapModalComponent } from '../../../components/map-modal/map-modal.compo
     MatDialogModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    MatProgressSpinnerModule,
     MatSnackBarModule
   ],
   templateUrl: './persona-list.component.html',

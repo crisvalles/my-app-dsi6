@@ -55,9 +55,22 @@
       "distritoId": "1",
       "coordenadas": "-8.3831315,-74.5428564",
       "id": "b33e"
+    },
+    {
+      "id": "fb8a",
+      "nombre": "Juana",
+      "apellidos": "Quiroz Tejada",
+      "dni": "85259636",
+      "correo": "juana@gmail.com",
+      "telefono": "963258596",
+      "direccion": "av centenario 789",
+      "paisId": "1",
+      "departamentoId": "1",
+      "provinciaId": "1",
+      "distritoId": "1",
+      "coordenadas": "-8.4055238,-74.6335033"
     }
   ],
-  
   "paises": [
     {
       "id": "1",
@@ -189,5 +202,12 @@
       "nombre": "Machu Picchu",
       "provinciaId": 6
     }
+  ],
+  "productos" : [
+    {},
+    {},
+    {},
+    {},
+    {}
   ]
 }
