@@ -15,6 +15,7 @@
       "id": "1"
     },
     {
+      "id": "d157",
       "nombre": "Karla",
       "apellidos": "Vargas Tejada",
       "dni": "15963528",
@@ -25,10 +26,10 @@
       "departamentoId": "1",
       "provinciaId": "1",
       "distritoId": "1",
-      "coordenadas": "-8.3944865,-74.5894852",
-      "id": "d157"
+      "coordenadas": "-8.3944865,-74.5894852"
     },
     {
+      "id": "e461",
       "nombre": "Rosa",
       "apellidos": "Alvarado Gomez",
       "dni": "85263574",
@@ -39,10 +40,10 @@
       "departamentoId": "1",
       "provinciaId": "1",
       "distritoId": "1",
-      "coordenadas": "-8.3786496,-74.5454599",
-      "id": "e461"
+      "coordenadas": "-8.3786496,-74.5454599"
     },
     {
+      "id": "b33e",
       "nombre": "Luis",
       "apellidos": "Correo Vilchez",
       "dni": "85369545",
@@ -53,22 +54,7 @@
       "departamentoId": "1",
       "provinciaId": "1",
       "distritoId": "1",
-      "coordenadas": "-8.3831315,-74.5428564",
-      "id": "b33e"
-    },
-    {
-      "id": "fb8a",
-      "nombre": "Juana",
-      "apellidos": "Quiroz Tejada",
-      "dni": "85259636",
-      "correo": "juana@gmail.com",
-      "telefono": "963258596",
-      "direccion": "av centenario 789",
-      "paisId": "1",
-      "departamentoId": "1",
-      "provinciaId": "1",
-      "distritoId": "1",
-      "coordenadas": "-8.4055238,-74.6335033"
+      "coordenadas": "-8.3831315,-74.5428564"
     }
   ],
   "paises": [
@@ -81,133 +67,220 @@
     {
       "id": "1",
       "nombre": "Ucayali",
-      "paisId": 1
+      "paisId": "1"
     },
     {
       "id": "2",
       "nombre": "Lima",
-      "paisId": 1
+      "paisId": "1"
     },
     {
       "id": "3",
       "nombre": "Cusco",
-      "paisId": 1
+      "paisId": "1"
     }
   ],
   "provincias": [
     {
       "id": "1",
       "nombre": "Coronel Portillo",
-      "departamentoId": 1
+      "departamentoId": "1"
     },
     {
       "id": "2",
       "nombre": "Atalaya",
-      "departamentoId": 1
+      "departamentoId": "1"
     },
     {
       "id": "3",
       "nombre": "Lima",
-      "departamentoId": 2
+      "departamentoId": "2"
     },
     {
       "id": "4",
       "nombre": "Huarochirí",
-      "departamentoId": 2
+      "departamentoId": "2"
     },
     {
       "id": "5",
       "nombre": "Cusco",
-      "departamentoId": 3
+      "departamentoId": "3"
     },
     {
       "id": "6",
       "nombre": "Urubamba",
-      "departamentoId": 3
+      "departamentoId": "3"
     }
   ],
   "distritos": [
     {
       "id": "1",
       "nombre": "Calleria",
-      "provinciaId": 1
+      "provinciaId": "1"
     },
     {
       "id": "2",
       "nombre": "Yarinacocha",
-      "provinciaId": 1
+      "provinciaId": "1"
     },
     {
       "id": "3",
       "nombre": "Manantay",
-      "provinciaId": 1
+      "provinciaId": "1"
     },
     {
       "id": "4",
       "nombre": "Campo Verde",
-      "provinciaId": 1
+      "provinciaId": "1"
     },
     {
       "id": "5",
       "nombre": "Raymondi",
-      "provinciaId": 2
+      "provinciaId": "2"
     },
     {
       "id": "6",
       "nombre": "Sepahua",
-      "provinciaId": 2
+      "provinciaId": "2"
     },
     {
       "id": "7",
       "nombre": "Miraflores",
-      "provinciaId": 3
+      "provinciaId": "3"
     },
     {
       "id": "8",
       "nombre": "San Isidro",
-      "provinciaId": 3
+      "provinciaId": "3"
     },
     {
       "id": "9",
       "nombre": "Barranco",
-      "provinciaId": 3
+      "provinciaId": "3"
     },
     {
       "id": "10",
       "nombre": "Matucana",
-      "provinciaId": 4
+      "provinciaId": "4"
     },
     {
       "id": "11",
       "nombre": "San Mateo",
-      "provinciaId": 4
+      "provinciaId": "4"
     },
     {
       "id": "12",
       "nombre": "Cusco",
-      "provinciaId": 5
+      "provinciaId": "5"
     },
     {
       "id": "13",
       "nombre": "San Sebastián",
-      "provinciaId": 5
+      "provinciaId": "5"
     },
     {
       "id": "14",
       "nombre": "Urubamba",
-      "provinciaId": 6
+      "provinciaId": "6"
     },
     {
       "id": "15",
       "nombre": "Machu Picchu",
-      "provinciaId": 6
+      "provinciaId": "6"
     }
   ],
-  "productos" : [
-    {},
-    {},
-    {},
-    {},
-    {}
+  "products": [
+    {
+      "id": "1",
+      "codigo": "PRD-0001",
+      "nombre": "Café Molido 250g",
+      "descripcion": "Café arábica, tueste medio.",
+      "categoriaId": "1",
+      "categoriaNombre": "Bebidas",
+      "precio": 16.5,
+      "stock": 45,
+      "activo": true,
+      "fechaCreacion": "2025-09-18T14:00:00Z",
+      "fechaActualizacion": "2025-09-22T18:00:00Z"
+    },
+    {
+      "id": "2",
+      "codigo": "PRD-0002",
+      "nombre": "Té Verde 20 sobres",
+      "descripcion": "Infusión antioxidante.",
+      "categoriaId": "1",
+      "categoriaNombre": "Bebidas",
+      "precio": 9.9,
+      "stock": 80,
+      "activo": true,
+      "fechaCreacion": "2025-09-18T14:10:00Z",
+      "fechaActualizacion": "2025-09-22T18:00:00Z"
+    },
+    {
+      "codigo": "PRD-0101",
+      "nombre": "Galletas Integrales 200g",
+      "descripcion": "Con avena y semillas.",
+      "categoriaId": 3,
+      "precio": 6.5,
+      "stock": 120,
+      "activo": true,
+      "id": "3"
+    },
+    {
+      "codigo": "PRD-0201",
+      "nombre": "Arroz Extra 5kg",
+      "descripcion": "Grano largo, rendimiento superior.",
+      "categoriaId": 3,
+      "precio": 29.9,
+      "stock": 35,
+      "activo": false,
+      "id": "4"
+    },
+    {
+      "codigo": "PRD-0302",
+      "nombre": "Mouse Inalámbrico",
+      "descripcion": "2.4GHz, 1600 DPI.",
+      "categoriaId": 3,
+      "precio": 39,
+      "stock": 25,
+      "activo": true,
+      "id": "6"
+    },
+    {
+      "codigo": "PRD-0401",
+      "nombre": "Frappe",
+      "descripcion": "frappe de cafe",
+      "categoriaId": 1,
+      "precio": 13,
+      "stock": 11,
+      "activo": true,
+      "id": "c387"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "nombre": "Bebidas"
+    },
+    {
+      "id": "2",
+      "nombre": "Snacks"
+    },
+    {
+      "id": "3",
+      "nombre": "Abarrotes"
+    },
+    {
+      "id": "4",
+      "nombre": "Electrónica"
+    },
+    {
+      "id": "5",
+      "nombre": "Limpieza"
+    },
+    {
+      "id": "6",
+      "nombre": "Hogar"
+    }
   ]
 }

@@ -69,6 +69,11 @@ export class PersonaFormComponent implements OnInit {
       this.isEditMode = true;
       this.loadFormData(this.data.person);
     }
+
+    // Inicialmente deshabilitar selects dependientes
+    this.personForm.get('departamentoId')?.disable();
+    this.personForm.get('provinciaId')?.disable();
+    this.personForm.get('distritoId')?.disable();
   }
 
   private createForm(): FormGroup {
@@ -149,7 +154,6 @@ export class PersonaFormComponent implements OnInit {
     });
   }
 
-  // --- Métodos de carga en cascada ---
   loadFormData(person: Person): void {
     this.personForm.patchValue({
       nombre: person.nombre,
@@ -195,9 +199,15 @@ export class PersonaFormComponent implements OnInit {
         this.departments = departments;
         this.paisNombre = this.countries.find((c) => c.id === countryId)?.nombre || '';
 
-        if (selectDepartmentId) {
-          this.personForm.get('departamentoId')?.setValue(selectDepartmentId);
-          this.loadProvincesByDepartment(selectDepartmentId, this.data.person.provinciaId);
+        const departamentoControl = this.personForm.get('departamentoId');
+        if (!departments.length) {
+          departamentoControl?.disable();
+        } else {
+          departamentoControl?.enable();
+          if (selectDepartmentId) {
+            departamentoControl?.setValue(selectDepartmentId);
+            this.loadProvincesByDepartment(selectDepartmentId, this.data.person.provinciaId);
+          }
         }
         this.isLoading = false;
       },
@@ -218,9 +228,15 @@ export class PersonaFormComponent implements OnInit {
         this.departamentoNombre =
           this.departments.find((d) => d.id === departmentId)?.nombre || '';
 
-        if (selectProvinceId) {
-          this.personForm.get('provinciaId')?.setValue(selectProvinceId);
-          this.loadDistrictsByProvince(selectProvinceId, this.data.person.distritoId);
+        const provinciaControl = this.personForm.get('provinciaId');
+        if (!provinces.length) {
+          provinciaControl?.disable();
+        } else {
+          provinciaControl?.enable();
+          if (selectProvinceId) {
+            provinciaControl?.setValue(selectProvinceId);
+            this.loadDistrictsByProvince(selectProvinceId, this.data.person.distritoId);
+          }
         }
         this.isLoading = false;
       },
@@ -240,10 +256,16 @@ export class PersonaFormComponent implements OnInit {
         this.districts = districts;
         this.provinciaNombre = this.provinces.find((p) => p.id === provinceId)?.nombre || '';
 
-        if (selectDistrictId) {
-          this.personForm.get('distritoId')?.setValue(selectDistrictId);
-          this.distritoNombre =
-            this.districts.find((d) => d.id === selectDistrictId)?.nombre || '';
+        const distritoControl = this.personForm.get('distritoId');
+        if (!districts.length) {
+          distritoControl?.disable();
+        } else {
+          distritoControl?.enable();
+          if (selectDistrictId) {
+            distritoControl?.setValue(selectDistrictId);
+            this.distritoNombre =
+              this.districts.find((d) => d.id === selectDistrictId)?.nombre || '';
+          }
         }
         this.isLoading = false;
       },
@@ -293,3 +315,4 @@ export class PersonaFormComponent implements OnInit {
     this.dialogRef.close(false);
   }
 }
+  
