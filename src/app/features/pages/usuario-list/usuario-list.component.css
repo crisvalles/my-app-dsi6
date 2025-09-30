@@ -1,0 +1,266 @@
+.container {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header h2 {
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.filter-field {
+  width: 100%;
+}
+
+.table-container {
+  position: relative;
+  min-height: 200px;
+  overflow: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.loading-shade p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th.mat-header-cell {
+  font-weight: 600;
+  background-color: #f5f7fa;
+  color: #2c3e50;
+  font-size: 13px;
+  padding: 12px 16px;
+  white-space: nowrap;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+td.mat-cell {
+  padding: 12px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  color: #424242;
+}
+
+tr.mat-row:hover {
+  background-color: #fafafa;
+}
+
+.actions-header {
+  text-align: center;
+  min-width: 120px;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Estilos para la paginación */
+mat-paginator {
+  background-color: #f5f7fa;
+  border-top: 1px solid #e0e0e0;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Estilos para el estado del usuario */
+.status-chip {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-chip.active {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.status-chip.inactive {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+
+  .header {
+    margin-bottom: 16px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .filter-container {
+    margin-bottom: 16px;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Scrollbar personalizado para la tabla */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Estilo para valores no disponibles */
+td.mat-cell:empty:before {
+  content: "N/A";
+  color: #9e9e9e;
+  font-style: italic;
+}
+
+/* Mejorar el aspecto de las celdas en general */
+td.mat-cell {
+  transition: background-color 0.2s ease;
+}
+
+tr.mat-row:hover td.mat-cell {
+  background-color: #f5f5f5;
+}
+
+/* Efecto hover para botones */
+.actions-container button:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.actions-container button:disabled:hover {
+  transform: none;
+}
+
+/* Personalización de color de los iconos */
+.actions-container {
+  display: flex;
+  gap: 4px;
+}
+
+/* Botón de Editar */
+.actions-container button[color="primary"] mat-icon {
+  color: #1976d2;
+  transition: color 0.3s ease;
+}
+
+.actions-container button[color="primary"]:hover mat-icon {
+  color: #0d47a1;
+}
+
+/* Botón de Eliminar */
+.actions-container button[color="warn"] mat-icon {
+  color: #d32f2f;
+  transition: color 0.3s ease;
+}
+
+.actions-container button[color="warn"]:hover mat-icon {
+  color: #b71c1c;
+}
+
+/* Botón de Activar/Desactivar */
+.actions-container button[color="primary"]:not([color="warn"]) mat-icon {
+  color: #ff9800;
+  transition: color 0.3s ease;
+}
+
+.actions-container button[color="primary"]:not([color="warn"]):hover mat-icon {
+  color: #f57c00;
+}
+
+/* Mejorar tooltips */
+.mat-mdc-tooltip {
+  font-size: 12px;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .actions-container {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .actions-container button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .actions-container button mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}

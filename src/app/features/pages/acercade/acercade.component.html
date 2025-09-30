@@ -1,0 +1,15 @@
+<div class="acercade-container">
+  <div
+    class="acercade-item"
+    *ngFor="let item of items; let i = index"
+    [class.reverse]="i % 2 !== 0"
+  >
+    <div class="texto">
+      <h2>{{ item.titulo }}</h2>
+      <p>{{ item.descripcion }}</p>
+    </div>
+    <div class="imagen">
+      <img [src]="item.imagen" [alt]="item.titulo" />
+    </div>
+  </div>
+</div>

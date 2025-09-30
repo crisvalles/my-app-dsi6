@@ -1,0 +1,101 @@
+<h2 mat-dialog-title class="dialog-title">
+  <mat-icon class="title-icon">{{ isEditMode ? 'edit' : 'person_add' }}</mat-icon>
+  {{ isEditMode ? 'Editar' : 'Agregar' }} Usuario
+</h2>
+
+<mat-dialog-content>
+  <div class="loading-overlay" *ngIf="isLoading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <form [formGroup]="usuarioForm" class="usuario-form">
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Nombre de Usuario</mat-label>
+          <input matInput formControlName="username" required />
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="usuarioForm.get('username')?.hasError('required')">
+            El nombre de usuario es requerido
+          </mat-error>
+          <mat-error *ngIf="usuarioForm.get('username')?.hasError('minlength')">
+            Mínimo 3 caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" [required]="!isEditMode" />
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-hint *ngIf="!isEditMode">Mínimo 6 caracteres</mat-hint>
+          <mat-hint *ngIf="isEditMode">Dejar vacío para mantener la actual</mat-hint>
+          <mat-error *ngIf="usuarioForm.get('password')?.hasError('required') && !isEditMode">
+            La contraseña es requerida
+          </mat-error>
+          <mat-error *ngIf="usuarioForm.get('password')?.hasError('minlength')">
+            Mínimo 6 caracteres
+          </mat-error>
+        </mat-form-field>
+      </div>
+    
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput formControlName="correo" required type="email" />
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="usuarioForm.get('correo')?.hasError('required')">
+            El correo es requerido
+          </mat-error>
+          <mat-error *ngIf="usuarioForm.get('correo')?.hasError('email')">
+            Formato de correo inválido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Teléfono</mat-label>
+          <input matInput formControlName="telefono" />
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+      </div>
+    
+
+    <!-- Estado del Usuario -->
+    <div class="form-section" *ngIf="isEditMode">
+      <h3 class="section-title">Estado del Usuario</h3>
+      <div class="form-row">
+        <mat-checkbox formControlName="activo" color="primary">
+          Usuario activo
+        </mat-checkbox>
+      </div>
+    </div>
+
+    <!-- Información de Fecha (solo lectura en edición) -->
+    <div class="form-section" *ngIf="isEditMode && usuarioForm.get('fechaCreacion')?.value">
+      <h3 class="section-title">Información del Sistema</h3>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field" [floatLabel]="'always'">
+          <mat-label>Fecha de Creación</mat-label>
+          <input matInput [value]="usuarioForm.get('fechaCreacion')?.value | date:'dd/MM/yyyy'" readonly />
+          <mat-icon matSuffix>calendar_today</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()" class="cancel-button">Cancelar</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onSubmit()"
+    [disabled]="usuarioForm.invalid || isLoading"
+    class="submit-button"
+  >
+    <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+    <span *ngIf="!isLoading">{{ isEditMode ? 'Actualizar' : 'Guardar' }}</span>
+  </button>
+</mat-dialog-actions>

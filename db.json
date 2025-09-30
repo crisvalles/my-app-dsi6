@@ -191,30 +191,24 @@
   ],
   "products": [
     {
-      "id": "1",
       "codigo": "PRD-0001",
       "nombre": "Café Molido 250g",
       "descripcion": "Café arábica, tueste medio.",
-      "categoriaId": "1",
-      "categoriaNombre": "Bebidas",
+      "categoriaId": 2,
       "precio": 16.5,
       "stock": 45,
       "activo": true,
-      "fechaCreacion": "2025-09-18T14:00:00Z",
-      "fechaActualizacion": "2025-09-22T18:00:00Z"
+      "id": "1"
     },
     {
-      "id": "2",
       "codigo": "PRD-0002",
       "nombre": "Té Verde 20 sobres",
       "descripcion": "Infusión antioxidante.",
-      "categoriaId": "1",
-      "categoriaNombre": "Bebidas",
+      "categoriaId": 1,
       "precio": 9.9,
       "stock": 80,
       "activo": true,
-      "fechaCreacion": "2025-09-18T14:10:00Z",
-      "fechaActualizacion": "2025-09-22T18:00:00Z"
+      "id": "2"
     },
     {
       "codigo": "PRD-0101",
@@ -255,6 +249,16 @@
       "stock": 11,
       "activo": true,
       "id": "c387"
+    },
+    {
+      "id": "35f9",
+      "codigo": "PRD-0024",
+      "nombre": "ace",
+      "descripcion": "ace trome color azul",
+      "categoriaId": 5,
+      "precio": 1,
+      "stock": 30,
+      "activo": true
     }
   ],
   "categories": [
@@ -281,6 +285,32 @@
     {
       "id": "6",
       "nombre": "Hogar"
+    }
+  ],
+  "usuarios": [
+    {
+      "username": "cris",
+      "correo": "cris@gmail.com",
+      "telefono": "965068226",
+      "activo": true,
+      "fechaCreacion": "2024-01-01",
+      "id": "1"
+    },
+    {
+      "username": "daysi",
+      "correo": "daysi@me.com",
+      "telefono": "452197302",
+      "activo": true,
+      "fechaCreacion": "2025-09-30",
+      "id": "4f79"
+    },
+    {
+      "username": "mariana",
+      "correo": "mariana@gmail.com",
+      "telefono": "512034679",
+      "activo": true,
+      "fechaCreacion": "2025-09-30",
+      "id": "c36e"
     }
   ]
 }

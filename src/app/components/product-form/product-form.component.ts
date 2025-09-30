@@ -72,35 +72,40 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  private loadFormData(product: Product): void {
-    this.productForm.patchValue({
-      codigo: product.codigo,
-      nombre: product.nombre,
-      descripcion: product.descripcion || '',
-      categoriaId: product.categoriaId,
-      precio: product.precio,
-      stock: product.stock,
-      activo: product.activo,
-    });
-  }
+private loadFormData(product: Product): void {
+  this.productForm.patchValue({
+    codigo: product.codigo,
+    nombre: product.nombre,
+    descripcion: product.descripcion || '',
+    categoriaId: product.categoriaId,  
+    precio: product.precio,
+    stock: product.stock,
+    activo: product.activo,
+  });
+}
 
-  private loadCategories(): void {
-    this.isLoadingCats = true;
-    this.productForm.get('categoriaId')?.disable();
 
-    this.productService.getCategories().subscribe({
-      next: (cats) => {
-        this.categories = cats || [];
-        this.isLoadingCats = false;
-        this.productForm.get('categoriaId')?.enable();
-      },
-      error: (err) => {
-        console.error('Error loading categories:', err);
-        this.isLoadingCats = false;
-        this.productForm.get('categoriaId')?.enable();
-      },
-    });
-  }
+private loadCategories(): void {
+  this.isLoadingCats = true;
+  this.productForm.get('categoriaId')?.disable();
+
+  this.productService.getCategories().subscribe({
+    next: (cats) => {
+      this.categories = cats?.map(cat => ({
+        ...cat,
+        id: Number(cat.id), // Convertir el id de la categoría a un número
+      })) || [];
+      this.isLoadingCats = false;
+      this.productForm.get('categoriaId')?.enable();
+    },
+    error: (err) => {
+      console.error('Error loading categories:', err);
+      this.isLoadingCats = false;
+      this.productForm.get('categoriaId')?.enable();
+    },
+  });
+}
+
 
   private showMessage(message: string, type: 'success' | 'error' | 'warn' = 'success'): void {
     this.snackBar.open(message, 'Cerrar', {
@@ -111,35 +116,38 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    if (this.productForm.invalid || this.isSaving) return;
+ onSubmit(): void {
+  if (this.productForm.invalid || this.isSaving) return;
 
-    this.isSaving = true;
-    const raw = this.productForm.getRawValue();
-    const payload: Product = {
-      ...raw,
-      precio: Number(raw.precio),
-      stock: Number(raw.stock),
-      categoriaId: Number(raw.categoriaId),
-    };
+  this.isSaving = true;
+  const raw = this.productForm.getRawValue();
 
-    const request$ = this.isEditMode && this.data.product?.id
-      ? this.productService.update(this.data.product.id, payload)
-      : this.productService.create(payload);
+  // Asegurarse de que los valores sean números
+  const payload: Product = {
+    ...raw,
+    precio: Number(raw.precio),
+    stock: Number(raw.stock),
+    categoriaId: Number(raw.categoriaId),  // Asegura que sea el id numérico
+  };
 
-    request$.subscribe({
-      next: () => {
-        this.isSaving = false;
-        this.showMessage('Producto guardado correctamente', 'success');
-        this.dialogRef.close(true);
-      },
-      error: (error) => {
-        this.isSaving = false;
-        console.error('Error saving product:', error);
-        this.showMessage('Error al guardar el producto', 'error');
-      },
-    });
-  }
+  const request$ = this.isEditMode && this.data.product?.id
+    ? this.productService.update(this.data.product.id, payload)
+    : this.productService.create(payload);
+
+  request$.subscribe({
+    next: () => {
+      this.isSaving = false;
+      this.showMessage('Producto guardado correctamente', 'success');
+      this.dialogRef.close(true);
+    },
+    error: (error) => {
+      this.isSaving = false;
+      console.error('Error saving product:', error);
+      this.showMessage('Error al guardar el producto', 'error');
+    },
+  });
+}
+
 
   onCancel(): void {
     this.dialogRef.close(false);

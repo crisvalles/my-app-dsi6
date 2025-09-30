@@ -39,20 +39,20 @@ export class ProductService {
     return this.http.get<Category[]>(this.categoriesUrl).pipe(catchError(this.handleError));
   }
 
-  // Productos con nombre de categoría
   getProductsWithCategory(): Observable<Product[]> {
-    return forkJoin({
-      products: this.getAll(),
-      categories: this.getCategories()
-    }).pipe(
-      map(({ products, categories }) => {
-        const catMap = new Map<number, string>((categories ?? []).map(c => [c.id, c.nombre]));
-        return (products ?? []).map(p => ({
-          ...p,
-          categoriaNombre: catMap.get(p.categoriaId) ?? '—'
-        }));
-      }),
-      catchError(this.handleError)
-    );
-  }
+  return forkJoin({
+    products: this.getAll(),
+    categories: this.getCategories()
+  }).pipe(
+    map(({ products, categories }) => {
+      // Mapeo de categorias: crea un Map donde el id de la categoria es la clave y el nombre es el valor
+      const catMap = new Map<number, string>((categories ?? []).map(c => [Number(c.id), c.nombre]));  // Convertimos id de categoria a numero
+      return (products ?? []).map(p => ({
+        ...p,
+        categoriaNombre: catMap.get(p.categoriaId) ?? '—'  // Asignamos el nombre de la categoria al producto
+      }));
+    }),
+    catchError(this.handleError)
+  );
+}
 }
